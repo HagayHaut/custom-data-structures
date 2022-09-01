@@ -92,3 +92,5 @@ ER.enqueue("gun-shot", 1);
 ER.enqueue("covid", 3);
 ER.enqueue("broken arm", 2);
 ER.enqueue("glass in foot", 4);
+
+export { Node, PriorityQueue };
