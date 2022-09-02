@@ -1,4 +1,4 @@
-class Node {
+class BSTNode {
   constructor(value) {
     this.value = value;
     this.right = null;
@@ -14,7 +14,7 @@ class BinarySearchTree {
   // inserts node at correct position in tree
   // O(log-n)
   insert(value) {
-    const newNode = new Node(value);
+    const newNode = new BSTNode(value);
     if (!this.root) {
       this.root = newNode;
       return this;

@@ -4,7 +4,7 @@
 
 // This priority queue uses a min binary-heap
 
-class Node {
+class PQNode {
   constructor(val, priority) {
     this.val = val;
     this.priority = priority;
@@ -21,7 +21,7 @@ class PriorityQueue {
   // 2. bubble up according to priority
   // O(log n)
   enqueue(val, priority) {
-    const newNode = new Node(val, priority);
+    const newNode = new PQNode(val, priority);
     this.values.push(newNode);
     this.bubbleUp();
   }
@@ -93,4 +93,4 @@ ER.enqueue("covid", 3);
 ER.enqueue("broken arm", 2);
 ER.enqueue("glass in foot", 4);
 
-export { Node, PriorityQueue };
+export { PQNode, PriorityQueue };

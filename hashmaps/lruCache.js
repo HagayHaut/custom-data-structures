@@ -1,4 +1,4 @@
-class Node {
+class LRUCacheNode {
   constructor(key, val) {
     this.key = key;
     this.val = val;
@@ -14,8 +14,8 @@ class LRUCache {
   constructor(capacity) {
     this.cap = capacity;
     this.cache = {};
-    this.left = new Node(0, 0); // .next is LRU
-    this.right = new Node(0, 0); // .prev is MRU
+    this.left = new LRUCacheNode(0, 0); // .next is LRU
+    this.right = new LRUCacheNode(0, 0); // .prev is MRU
     this.left.next = this.right;
     this.right.prev = this.left;
   }
@@ -34,7 +34,7 @@ class LRUCache {
     if (key in this.cache) {
       this.remove(this.cache[key]);
     }
-    this.cache[key] = new Node(key, value);
+    this.cache[key] = new LRUCacheNode(key, value);
     this.insert(this.cache[key]);
     // check capacity and evict if needed
     if (this.cap < 0) {

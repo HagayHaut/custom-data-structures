@@ -1,4 +1,4 @@
-class Node {
+class DLLNode {
   constructor(val) {
     this.val = val;
     this.next = null;
@@ -15,7 +15,7 @@ class DoublyLinkedList {
 
   // similat to SLL, just need to update .prev
   push(val) {
-    const newNode = new Node(val);
+    const newNode = new DLLNode(val);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -60,7 +60,7 @@ class DoublyLinkedList {
   }
 
   unshift(val) {
-    const newNode = new Node(val);
+    const newNode = new DLLNode(val);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -115,7 +115,7 @@ class DoublyLinkedList {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return !!this.unshift(val);
     if (index === this.length) return !!this.push(val);
-    const newNode = new Node(val);
+    const newNode = new DLLNode(val);
     const beforeNode = this.get(index - 1);
     const afterNode = beforeNode.next;
     (newNode.next = afterNode), (afterNode.prev = newNode);

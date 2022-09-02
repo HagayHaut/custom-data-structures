@@ -1,4 +1,4 @@
-import { Node, PriorityQueue } from "../trees/binary-trees/priorityQueue.js";
+import { PQNode, PriorityQueue } from "../trees/binary-trees/priorityQueue.js";
 
 class WeightedGraph {
   constructor() {

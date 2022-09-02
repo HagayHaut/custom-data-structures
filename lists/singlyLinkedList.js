@@ -1,4 +1,4 @@
-class Node {
+class SLLNode {
   constructor(val) {
     this.val = val;
     this.next = null;
@@ -13,7 +13,7 @@ class SinglyLinkedList {
   }
 
   push(val) {
-    const newNode = new Node(val);
+    const newNode = new SLLNode(val);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -53,7 +53,7 @@ class SinglyLinkedList {
   }
 
   unshift(val) {
-    const newNode = new Node(val);
+    const newNode = new SLLNode(val);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -93,7 +93,7 @@ class SinglyLinkedList {
     if (index === this.length) return !!this.push(val);
     if (index === 0) return !!this.unshift(val);
 
-    const newNode = new Node(val);
+    const newNode = new SLLNode(val);
     const prevNode = this.get(index - 1);
     const temp = prevNode.next;
     prevNode.next = newNode;
