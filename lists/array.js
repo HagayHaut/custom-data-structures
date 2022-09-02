@@ -74,6 +74,21 @@ class CustomArray {
     }
     return undefined;
   }
+
+  some(cb) {
+    let some = false;
+    for (const [_, value] of this.data) {
+      if (cb(value)) some = true;
+    }
+    return some;
+  }
+
+  all(cb) {
+    for (const [_, value] of this.data) {
+      if (!cb(value)) return false;
+    }
+    return true;
+  }
 }
 
 const array = new CustomArray();
