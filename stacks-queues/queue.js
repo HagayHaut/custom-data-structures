@@ -1,4 +1,4 @@
-// First In, First Out (FOFI)
+// First In, First Out (FIFO)
 //     like a queue to get on a ride
 
 // USED IN:
