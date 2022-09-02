@@ -1,7 +1,7 @@
 // Custom array implementation
 // I'll try to implement as many methods I can
 
-export class CustomArray {
+class CustomArray {
   constructor() {
     this.length = 0;
     this.data = new Map();
@@ -51,8 +51,38 @@ export class CustomArray {
   of(index) {
     return this.data.get(index);
   }
+
+  map(cb) {
+    const modified = new CustomArray();
+    for (const [_, value] of this.data) {
+      modified.push(cb(value));
+    }
+    return modified;
+  }
+
+  filter(cb) {
+    const modified = new CustomArray();
+    for (const [_, value] of this.data) {
+      if (cb(value)) modified.push(value);
+    }
+    return modified;
+  }
+
+  find(cb) {
+    for (const [_, value] of this.data) {
+      if (cb(value)) return value;
+    }
+    return undefined;
+  }
 }
 
 const array = new CustomArray();
 
-console.log(array);
+array.push(1);
+array.push(2);
+array.push(3);
+array.push(4);
+array.push(5);
+
+console.log(array.filter((n) => n % 2));
+console.log(array.data);
