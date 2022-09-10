@@ -71,9 +71,7 @@ class HashTable {
   // will be nested in array
   set(key, value) {
     const idx = this._hash(key);
-    if (!this.keyMap[idx]) {
-      this.keyMap[idx] = [];
-    }
+    this.keyMap[idx] ||= [];
     this.keyMap[idx].push([key, value]);
   }
 
@@ -129,16 +127,26 @@ class HashTable {
     });
     return result;
   }
+
+  has(key) {
+    const idx = this._hash(key);
+    if (this.keyMap[idx]) {
+      for (const entry of this.keyMap[idx]) {
+        if (entry[0] === key) return true;
+      }
+    }
+    return false;
+  }
 }
 
 let ht = new HashTable();
-ht.set("key1", "value1");
-ht.set("key2", "value2");
-ht.set("key3", "value3");
-ht.set("key4", "value4");
-ht.set("key11", "valueqw1");
-ht.set("keys3", "valuqwe2");
-ht.set("ke4y3", "vaqwlue3");
-ht.set("kgey4", "vaqwlue4");
-ht.set("key3451", "value1");
-ht.set("key3452", "value1");
+
+for (let i = 0; i < 26; i++) {
+  ht.set(String.fromCharCode(i + 97), i + 96);
+}
+
+console.log(ht.keyMap);
+console.log(ht.has("a"));
+console.log(ht.has("b"));
+console.log(ht.has("A"));
+console.log(ht.has("B"));
